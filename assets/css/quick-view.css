@@ -1,0 +1,256 @@
+.vsl-modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    z-index:999999;
+}
+
+.vsl-modal.active{
+    display:block;
+}
+
+.vsl-modal-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(3px);
+}
+
+.vsl-modal-box{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:min(1000px,95vw);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+}
+
+.vsl-close{
+
+    position:absolute;
+
+    left:15px;
+    top:15px;
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#fff;
+
+    font-size:26px;
+
+    z-index:100;
+
+    transition:.2s;
+
+}
+
+.vsl-close:hover{
+
+    transform:rotate(90deg);
+
+}
+
+.vsl-modal-content{
+
+    padding:40px;
+
+}
+
+.vsl-qv-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+    align-items:start;
+
+}
+
+.vsl-qv-image{
+
+    text-align:center;
+
+}
+
+.vsl-qv-image img{
+
+    width:100%;
+
+    height:auto;
+
+    object-fit:contain;
+
+}
+
+.vsl-qv-title{
+
+    font-size:28px;
+
+    line-height:1.5;
+
+    font-weight:700;
+
+    margin:0 0 20px;
+
+}
+
+.vsl-qv-rating{
+
+    margin-bottom:15px;
+
+}
+
+.vsl-qv-price{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin:20px 0;
+
+}
+
+.vsl-qv-description{
+
+    line-height:2;
+
+    color:#555;
+
+    margin-bottom:25px;
+
+}
+
+.vsl-qv-cart{
+
+    margin-top:25px;
+
+}
+
+.vsl-qv-cart .button{
+
+    width:100%;
+
+}
+
+.vsl-qv-link{
+
+    margin-top:15px;
+
+}
+
+.vsl-qv-link .button{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+@media (max-width:768px){
+
+    .vsl-modal-box{
+
+        width:95vw;
+
+        max-height:95vh;
+
+    }
+
+    .vsl-modal-content{
+
+        padding:20px;
+
+    }
+
+    .vsl-qv-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+    .vsl-qv-title{
+
+        font-size:22px;
+
+    }
+
+    .vsl-qv-price{
+
+        font-size:22px;
+
+    }
+
+}
+.vsl-qv-meta{
+
+    margin:20px 0;
+
+    border-top:1px solid #eee;
+
+    border-bottom:1px solid #eee;
+
+    padding:15px 0;
+
+}
+
+.vsl-meta-row{
+
+    display:flex;
+
+    gap:10px;
+
+    margin:10px 0;
+
+    font-size:14px;
+
+}
+
+.vsl-meta-row strong{
+
+    min-width:90px;
+
+}
+
+/* Patch3 Modal Responsive */
+.vsl-modal-box{max-width:1100px}
+.vsl-qv-image img{max-height:420px;object-fit:contain}
+@media(max-width:767px){
+ .vsl-modal-box{width:95vw;max-height:90vh;overflow:auto}
+ .vsl-qv-grid{grid-template-columns:1fr!important;gap:16px}
+ .vsl-qv-title{font-size:20px}
+ .vsl-qv-price{font-size:22px}
+}
+
+
+/* Patch4 Mobile Bottom Sheet */
+@media (max-width:768px){
+.vsl-modal-box{left:0;right:0;bottom:0;top:auto;transform:none;width:100%;max-height:85vh;border-radius:18px 18px 0 0;animation:vslSheet .25s ease;}
+@keyframes vslSheet{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.vsl-qv-grid{grid-template-columns:1fr!important;gap:16px;}
+.vsl-qv-image img{max-height:220px;width:auto;margin:auto;display:block;}
+}

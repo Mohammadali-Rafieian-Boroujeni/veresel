@@ -1,0 +1,439 @@
+.vsl-swiper{
+    width:100%;
+    position:relative;
+}
+
+.vsl-swiper .swiper-wrapper{
+    align-items:stretch;
+}
+
+.vsl-swiper .swiper-slide{
+    height:auto;
+}
+
+.vsl-card{
+
+    background:#fff;
+
+    border:1px solid #e8e8e8;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    transition:.25s;
+
+    height:100%;
+}
+
+.vsl-card:hover{
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transform:translateY(-3px);
+
+}
+
+.vsl-card img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.vsl-card h3{
+
+    padding:12px;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    min-height:55px;
+
+}
+
+.vsl-price{
+
+    padding:0 12px 14px;
+
+    color:#1b8b37;
+
+    font-weight:bold;
+
+}
+
+.vsl-more{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+/* ---------- Responsive ---------- */
+
+.vsl-swiper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.vsl-card {
+    height: auto;
+}
+
+.vsl-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* ==========================================
+   Navigation
+========================================== */
+
+.vsl-carousel{
+
+    position:relative;
+
+}
+
+.vsl-nav{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    top:45%;
+
+    background:#fff;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    z-index:50;
+
+    transition:.25s;
+
+}
+
+.vsl-nav:hover{
+
+    transform:scale(1.08);
+
+}
+/* ==========================================
+   مشاهده همه موبایل
+========================================== */
+.vsl-prev{
+
+    right:-20px;
+
+}
+
+.vsl-next{
+
+    left:-20px;
+
+}
+
+.vsl-more a{
+    display:block;
+    height:100%;
+    text-decoration:none;
+}
+
+.vsl-more-inner{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100%;
+    height:100%;
+    font-weight:700;
+    font-size:20px;
+}
+/* ==========================================
+   Header
+========================================== */
+
+.vsl-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.vsl-title{
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.vsl-view-all{
+
+    color:#00b853;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+@media(max-width:768px){
+
+    .vsl-title{
+
+        font-size:18px;
+
+    }
+
+}
+/* ---------- Product Card ---------- */
+
+.vsl-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid #eee;
+    transition:.25s;
+}
+
+.vsl-card:hover{
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+.vsl-image{
+    position:relative;
+    display:block;
+}
+
+.vsl-sale{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:5;
+    background:#e53935;
+    color:#fff;
+    padding:4px 8px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.vsl-content{
+    padding:14px;
+}
+
+.vsl-title{
+    font-size:15px;
+    line-height:1.7;
+    min-height:52px;
+    margin:0 0 10px;
+}
+
+.vsl-title a{
+    color:#222;
+    text-decoration:none;
+}
+
+.vsl-rating{
+    margin-bottom:8px;
+}
+
+.vsl-price{
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.vsl-cart .button{
+    width:100%;
+    text-align:center;
+}
+/* ---------- Badges ---------- */
+
+.vsl-badges{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    z-index:10;
+
+}
+
+.vsl-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:48px;
+
+    height:26px;
+
+    padding:0 10px;
+
+    border-radius:30px;
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.vsl-sale{
+
+    background:#ef4444;
+
+}
+
+.vsl-out{
+
+    background:#6b7280;
+
+}
+/* ---------- Product Image ---------- */
+
+.vsl-image{
+    display:block;
+    overflow:hidden;
+    aspect-ratio:1/1;
+    background:#fff;
+}
+
+.vsl-product-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    transition:transform .35s ease;
+
+    display:block;
+
+}
+
+.vsl-card:hover .vsl-product-image{
+
+    transform:scale(1.05);
+
+}
+/* ---------- Add To Cart ---------- */
+
+.vsl-cart .button{
+
+    width:100%;
+
+    border-radius:8px;
+
+    background:#16a34a;
+
+    color:#fff;
+
+    border:none;
+
+    padding:12px;
+
+    transition:.25s;
+
+}
+
+.vsl-cart .button:hover{
+
+    background:#15803d;
+
+}
+/* ---------- Second Image ---------- */
+
+.vsl-image-wrapper{
+
+    position:relative;
+
+    aspect-ratio:1;
+
+    overflow:hidden;
+
+}
+
+.vsl-product-image{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    transition:.35s;
+
+}
+
+.vsl-product-image.second{
+
+    opacity:0;
+
+}
+
+.vsl-card:hover .vsl-product-image.first{
+
+    opacity:0;
+
+}
+
+.vsl-card:hover .vsl-product-image.second{
+
+    opacity:1;
+
+}
+
+/* Patch3 Responsive */
+.vsl-card{display:flex;flex-direction:column;height:100%}
+.vsl-content{display:flex;flex-direction:column;flex:1}
+.vsl-title{min-height:3.4em}
+.vsl-price{margin-top:auto}
+.vsl-cart .button{width:100%;min-height:44px}
+@media(max-width:767px){
+ .vsl-title{font-size:14px;min-height:3em}
+ .vsl-content{padding:12px}
+ .vsl-action{width:44px;height:44px}
+}
+
+
+/* Patch4 Mobile Cards */
+@media (max-width:768px){
+.vsl-content{padding:10px;}
+.vsl-title{font-size:13px;min-height:42px;}
+.vsl-price{font-size:18px;}
+.vsl-product-image{padding:10px;}
+.vsl-action{width:36px;height:36px;}
+}
