@@ -8,22 +8,67 @@ class VSL_Assets
     {
         add_action(
             'wp_enqueue_scripts',
-            array($this, 'enqueue')
+            array($this, 'maybe_enqueue')
         );
     }
 
-    public function enqueue()
+    /**
+     * Decide whether the current request needs carousel assets, covering
+     * both the classic shortcode and pages built with the Elementor widget.
+     */
+    public function maybe_enqueue(): void
     {
         global $post;
 
-        if (
-            !is_singular() ||
-            !isset($post) ||
-            !has_shortcode($post->post_content, 'veresel')
-        ) {
+        $needs_assets = is_singular()
+            && isset($post)
+            && has_shortcode($post->post_content, 'veresel');
+
+        if (!$needs_assets && did_action('elementor/loaded')) {
+            $needs_assets = self::page_uses_elementor_widget();
+        }
+
+        if (!$needs_assets) {
             return;
         }
 
+        self::enqueue();
+    }
+
+    /**
+     * Detect whether the current post (built with Elementor) contains the
+     * Veresel carousel widget, including inside the Elementor editor itself.
+     */
+    protected static function page_uses_elementor_widget(): bool
+    {
+        global $post;
+
+        if (!isset($post)) {
+            return false;
+        }
+
+        if (
+            class_exists('\Elementor\Plugin')
+            && isset(\Elementor\Plugin::$instance->preview)
+            && \Elementor\Plugin::$instance->preview->is_preview_mode()
+        ) {
+            return true;
+        }
+
+        $data = get_post_meta($post->ID, '_elementor_data', true);
+
+        return is_string($data) && false !== strpos($data, 'veresel_carousel');
+    }
+
+    /**
+     * Register/enqueue the carousel + quick view styles and scripts.
+     *
+     * Safe to call more than once (e.g. from both the shortcode detection
+     * path and the Elementor widget render path); WordPress dedupes
+     * handles automatically so assets are never printed twice.
+     */
+    public static function enqueue(): void
+    {
         /*
         |--------------------------------------------------------------------------
         | Styles

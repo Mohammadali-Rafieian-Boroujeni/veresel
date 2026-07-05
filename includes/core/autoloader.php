@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 
 class VSL_Autoloader
 {
-    public static function register()
+    public static function register(): void
     {
         spl_autoload_register(array(__CLASS__, 'load'));
     }

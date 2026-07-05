@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 
 class VSL_Renderer
 {
-    public static function render($query, $atts = array())
+    public static function render($query, array $atts = array()): string
     {
         if (!$query instanceof WP_Query) {
             return '';
@@ -14,7 +14,7 @@ class VSL_Renderer
 
             return apply_filters(
                 'vsl_no_products',
-                '<div class="vsl-empty">هیچ محصولی یافت نشد.</div>',
+                '<div class="vsl-empty">' . esc_html__('هیچ محصولی یافت نشد.', 'veresel') . '</div>',
                 $atts
             );
 

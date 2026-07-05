@@ -7,7 +7,7 @@ class VSL_Plugin
 
     private static $instance = null;
 
-    public static function instance()
+    public static function instance(): self
     {
 
         if ( self::$instance === null ) {

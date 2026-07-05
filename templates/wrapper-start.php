@@ -4,13 +4,13 @@
 
         <div class="vsl-title">
 
-            <?php echo ! empty( $title ) ? esc_html( $title ) : 'محصولات'; ?>
+            <?php echo ! empty( $title ) ? esc_html( $title ) : esc_html__( 'محصولات', 'veresel' ); ?>
 
         </div>
 
         <a class="vsl-view-all" href="<?php echo esc_url( $shop_link ); ?>">
 
-            مشاهده همه
+            <?php esc_html_e( 'مشاهده همه', 'veresel' ); ?>
 
         </a>
 

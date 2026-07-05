@@ -17,7 +17,7 @@ class VSL_Ajax
         );
     }
 
-    public function quick()
+    public function quick(): void
     {
         check_ajax_referer('vsl_nonce', 'nonce');
         require_once VSL_PATH.'includes/ajax/quick-view.php';

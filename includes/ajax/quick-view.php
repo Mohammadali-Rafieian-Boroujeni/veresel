@@ -83,7 +83,7 @@ if (!$product) {
 
         <div class="vsl-meta-row">
 
-            <strong>کد کالا:</strong>
+            <strong><?php esc_html_e('کد کالا:', 'veresel'); ?></strong>
 
             <?php echo esc_html($product->get_sku()); ?>
 
@@ -93,13 +93,13 @@ if (!$product) {
 
     <div class="vsl-meta-row">
 
-        <strong>وضعیت:</strong>
+        <strong><?php esc_html_e('وضعیت:', 'veresel'); ?></strong>
 
         <?php
 
         echo $product->is_in_stock()
-            ? 'موجود'
-            : 'ناموجود';
+            ? esc_html__('موجود', 'veresel')
+            : esc_html__('ناموجود', 'veresel');
 
         ?>
 
@@ -107,7 +107,7 @@ if (!$product) {
 
     <div class="vsl-meta-row">
 
-        <strong>دسته:</strong>
+        <strong><?php esc_html_e('دسته:', 'veresel'); ?></strong>
 
         <?php
 
@@ -157,7 +157,7 @@ if (!$product) {
                             href="<?php echo esc_url(get_permalink($product->get_id())); ?>"
                         >
 
-                            مشاهده صفحه محصول
+                            <?php esc_html_e('مشاهده صفحه محصول', 'veresel'); ?>
 
                         </a>
 

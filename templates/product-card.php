@@ -22,7 +22,7 @@ $gallery = $product->get_gallery_image_ids();
             <?php if (!$product->is_in_stock()) : ?>
 
                 <span class="vsl-badge vsl-out">
-                    ناموجود
+                    <?php esc_html_e('ناموجود', 'veresel'); ?>
                 </span>
 
             <?php elseif ($product->is_on_sale()) : ?>
@@ -56,7 +56,7 @@ $gallery = $product->get_gallery_image_ids();
             <button
                 type="button"
                 class="vsl-action vsl-quick"
-                title="مشاهده سریع"
+                title="<?php esc_attr_e('مشاهده سریع', 'veresel'); ?>"
                 data-product="<?php echo esc_attr(get_the_ID()); ?>"
             >
                 👁
@@ -65,7 +65,7 @@ $gallery = $product->get_gallery_image_ids();
             <button
                 type="button"
                 class="vsl-action vsl-wishlist"
-                title="علاقه‌مندی"
+                title="<?php esc_attr_e('علاقه‌مندی', 'veresel'); ?>"
             >
                 ❤
             </button>
@@ -73,7 +73,7 @@ $gallery = $product->get_gallery_image_ids();
             <button
                 type="button"
                 class="vsl-action vsl-compare"
-                title="مقایسه"
+                title="<?php esc_attr_e('مقایسه', 'veresel'); ?>"
             >
                 ⇄
             </button>

@@ -4,7 +4,7 @@
 
         <div class="vsl-more-inner">
 
-            مشاهده همه
+            <?php esc_html_e('مشاهده همه', 'veresel'); ?>
 
         </div>
 

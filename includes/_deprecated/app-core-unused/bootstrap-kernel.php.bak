@@ -1,0 +1,3 @@
+<?php
+use Veresel\Core\Application;
+return Application::boot();

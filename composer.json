@@ -1,0 +1,8 @@
+{
+  "name":"veresel/platform",
+  "autoload":{
+    "psr-4":{
+      "Veresel\\":"app/"
+    }
+  }
+}
