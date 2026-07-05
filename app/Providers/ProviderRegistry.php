@@ -19,7 +19,13 @@ class ProviderRegistry
 
     public function register(ProviderInterface $provider): void
     {
-        $this->providers[$provider->get_id()] = $provider;
+        $id = $provider->get_id();
+
+        if (!is_string($id) || '' === trim($id)) {
+            return;
+        }
+
+        $this->providers[$id] = $provider;
     }
 
     public function get(string $id): ?ProviderInterface

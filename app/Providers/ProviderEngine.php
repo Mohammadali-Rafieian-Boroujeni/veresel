@@ -41,19 +41,39 @@ class ProviderEngine
 
     public function execute(string $id, array $args = array()): \WP_Query
     {
-        $provider = $this->registry->get($id);
+        $resolved_id = $this->normalize_id($id, $args);
+
+        if ('' === $resolved_id) {
+            return \VSL_Query::products($args);
+        }
+
+        $provider = $this->registry->get($resolved_id);
 
         if (!$provider) {
-            // Unknown source (e.g. a typo in a shortcode) fails safe with
-            // an empty result instead of a fatal error.
-            return \VSL_Query::from_ids(array());
+            return \VSL_Query::products($args);
         }
 
         return $this->pipeline->run($provider, $args);
     }
 
+    public function has(string $id): bool
+    {
+        return null !== $this->registry->get($this->normalize_id($id, array()));
+    }
+
     public function registry(): ProviderRegistry
     {
         return $this->registry;
+    }
+
+    private function normalize_id(string $id, array $args = array()): string
+    {
+        $value = trim($id);
+
+        if ('' === $value && isset($args['provider']) && is_string($args['provider'])) {
+            $value = trim($args['provider']);
+        }
+
+        return $value;
     }
 }

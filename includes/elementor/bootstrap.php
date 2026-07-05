@@ -28,7 +28,7 @@ $register_veresel_widget = function ($widgets_manager = null) use (&$registered)
         $widgets_manager = \Elementor\Plugin::$instance->widgets_manager;
     }
 
-    if ($widgets_manager instanceof \Elementor\Widgets_Manager || $widgets_manager instanceof \Elementor\Widgets_Manager) {
+    if ($widgets_manager instanceof \Elementor\Widgets_Manager) {
         $widget = new \VSL_Elementor_Widget();
 
         if (method_exists($widgets_manager, 'register')) {
