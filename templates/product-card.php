@@ -14,9 +14,8 @@ $gallery = $product->get_gallery_image_ids();
 
 <div class="swiper-slide vsl-card">
 
-    <a class="vsl-image" href="<?php the_permalink(); ?>">
+    <div class="vsl-media">
 
-        <!-- Badges -->
         <div class="vsl-badges">
 
             <?php if (!$product->is_in_stock()) : ?>
@@ -50,7 +49,43 @@ $gallery = $product->get_gallery_image_ids();
 
         </div>
 
-        <!-- Actions -->
+        <a class="vsl-image" href="<?php the_permalink(); ?>">
+
+            <div class="vsl-image-wrapper">
+
+                <?php
+
+                echo get_the_post_thumbnail(
+                    get_the_ID(),
+                    'woocommerce_thumbnail',
+                    array(
+                        'class' => 'vsl-product-image first',
+                        'loading' => 'lazy',
+                        'decoding' => 'async'
+                    )
+                );
+
+                if (!empty($gallery)) {
+
+                    echo wp_get_attachment_image(
+                        $gallery[0],
+                        'woocommerce_thumbnail',
+                        false,
+                        array(
+                            'class' => 'vsl-product-image second',
+                            'loading' => 'lazy',
+                            'decoding' => 'async'
+                        )
+                    );
+
+                }
+
+                ?>
+
+            </div>
+
+        </a>
+
         <div class="vsl-actions">
 
             <button
@@ -80,41 +115,7 @@ $gallery = $product->get_gallery_image_ids();
 
         </div>
 
-        <!-- Images -->
-        <div class="vsl-image-wrapper">
-
-            <?php
-
-            echo get_the_post_thumbnail(
-                get_the_ID(),
-                'woocommerce_thumbnail',
-                array(
-                    'class' => 'vsl-product-image first',
-                    'loading' => 'lazy',
-                    'decoding' => 'async'
-                )
-            );
-
-            if (!empty($gallery)) {
-
-                echo wp_get_attachment_image(
-                    $gallery[0],
-                    'woocommerce_thumbnail',
-                    false,
-                    array(
-                        'class' => 'vsl-product-image second',
-                        'loading' => 'lazy',
-                        'decoding' => 'async'
-                    )
-                );
-
-            }
-
-            ?>
-
-        </div>
-
-    </a>
+    </div>
 
     <div class="vsl-content">
 
